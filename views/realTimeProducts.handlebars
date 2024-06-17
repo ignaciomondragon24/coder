@@ -1,0 +1,58 @@
+<!-- Agrego formulario simple para agregar productos -->
+<div>
+    <input type="text" name="title" placeholder="Título">
+    <input type="text" name="description" placeholder="Descripción">
+    <input type="number" name="price" placeholder="Precio">
+    <input type="text" name="code" placeholder="Código">
+    <input type="text" name="stock" placeholder="Stock">
+    <input type="text" name="category" placeholder="Categoría">
+    <button id="submit-button" onclick="agregaProducto()">Agregar Producto</button>
+</div>
+
+
+<h1>Lista de Productos</h1>
+<ul>
+    {{#each products}}
+    <li>
+        <h2>{{this.title}}</h2>
+        <p>{{this.description}}</p>
+        <p>Precio: ${{this.price}}</p>
+        <!-- Agrega más detalles según sea necesario -->
+        <button onclick="eliminar({{this.id}})">Elimiar</button>
+    </li>
+    {{/each}}
+</ul>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    socket.on('connect', function () {
+        console.log('Conectado al servidor');
+    });
+    socket.on('disconnect', function () {
+        console.log('Desconectado del servidor');
+    });
+    socket.on('stock_actualizado', function (product) {
+        // Recargo la pagina
+        console.log('Stock actualizado');
+        location.reload();
+    });
+
+
+
+    function agregaProducto() {
+        const title = document.querySelector('input[name="title"]').value;
+        const description = document.querySelector('input[name="description"]').value;
+        const price = document.querySelector('input[name="price"]').value;
+        const product = {
+            title,
+            description,
+            price,
+        };
+        socket.emit('new_product_back', product);
+    }
+
+    function eliminar(id) {
+        socket.emit('delete_product', id);
+    }
+</script>
