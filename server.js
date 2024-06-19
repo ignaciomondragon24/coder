@@ -15,6 +15,7 @@ handlebars(app);
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
 app.use('/api/realtimeproducts', realtimeproductsRouter);
+app.use(express.static('public'));
 
 const httpServer = app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
@@ -22,6 +23,3 @@ const httpServer = app.listen(port, () => {
 
 
 serverSocket.config(httpServer);
-
-
-

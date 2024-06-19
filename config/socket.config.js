@@ -6,8 +6,6 @@ const productManager = new ProductManager();
 const config = (serverHTTP) => {
     const serverIO = new Server(serverHTTP);
 
-    // Define un evento oyente (connection) que se dispara cuando
-    // se establece la conexión.
     serverIO.on("connection", (socket) => {
         const id = socket.client.id;
         console.log("Conexión establecida", id);
@@ -19,8 +17,6 @@ const config = (serverHTTP) => {
         });
 
 
-        // Define un evento oyente (disconnect) que se dispara
-        // cuando se genera la desconexión.
         socket.on("disconnect", () => {
             console.log("Se desconecto un cliente");
         });

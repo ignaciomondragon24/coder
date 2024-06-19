@@ -40,19 +40,5 @@
       "thumbnail1.jpg",
       "thumbnail2.jpg"
     ]
-  },
-  {
-    "id": 4,
-    "title": "Producto 4",
-    "description": "Descripción del producto 4",
-    "code": "ABC123",
-    "price": 110.99,
-    "status": "available",
-    "stock": 100,
-    "category": "Categoría 1",
-    "thumbnails": [
-      "thumbnail1.jpg",
-      "thumbnail2.jpg"
-    ]
   }
 ]
