@@ -9,6 +9,9 @@ const serverSocket = require("./config/socket.config.js");
 const productsRouter = require('./routes/products');
 const cartsRouter = require('./routes/carts');
 const realtimeproductsRouter = require('./routes/realtimeproducts');
+const connectDB = require('./config/mongoose.config');
+
+connectDB();
 
 handlebars(app);
 

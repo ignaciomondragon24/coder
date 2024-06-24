@@ -1,5 +1,5 @@
 const { Server } = require("socket.io");
-const ProductManager = require("../managers/productManager");
+const ProductManager = require("../dao/mongoDb/productManager");
 
 const productManager = new ProductManager();
 

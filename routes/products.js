@@ -1,7 +1,7 @@
 // routes/products.js
 const express = require('express');
 const router = express.Router();
-const ProductManager = require('../managers/productManager');
+const ProductManager = require('../dao/mongoDb/productManager');
 
 const productManager = new ProductManager();
 

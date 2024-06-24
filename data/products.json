@@ -40,5 +40,11 @@
       "thumbnail1.jpg",
       "thumbnail2.jpg"
     ]
+  },
+  {
+    "id": 4,
+    "title": "",
+    "description": "asdsad",
+    "price": ""
   }
 ]

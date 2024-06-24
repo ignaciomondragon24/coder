@@ -1,7 +1,7 @@
 // routes/carts.js
 const express = require('express');
 const router = express.Router();
-const CartManager = require('../managers/cartManager');
+const CartManager = require('../dao/mongoDb/cartManager');
 
 const cartManager = new CartManager();
 
